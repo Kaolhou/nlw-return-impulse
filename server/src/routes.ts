@@ -19,7 +19,7 @@ routes.post('/feedbacks', async (req,res)=>{
         nodemailerMailAdapter
     )
 
-    const feedback = await submitFeedbackService.execute({
+    await submitFeedbackService.execute({
         type, comment, screenshot
     })
 
