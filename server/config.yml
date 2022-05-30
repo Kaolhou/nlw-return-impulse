@@ -1,0 +1,20 @@
+# start "" "%PROGRAMFILES%\Git\bin\sh.exe" --login
+sparklines:
+  - title: CPU usage
+    rate-ms: 200
+    scale: 0
+    sample: ps -a %cpu | awk '{s+=$1} END {print s}'
+  - title: Free memory pages
+    rate-ms: 200
+    scale: 0
+    sample: memory_pressure | grep 'Pages free' | awk '{print $3}'
+
+textboxes:
+  - title: Local weather
+    rate-ms: 10000      # sampling rate, default = 1000
+    sample: curl wttr.in?0ATQF
+    border: false       # border around the item, default = true
+    color: 178          # 8-bit color number, default is white
+  # - title: Docker containers stats
+  #   rate-ms: 500
+  #   sample: docker stats --no-stream --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.PIDs}}"
