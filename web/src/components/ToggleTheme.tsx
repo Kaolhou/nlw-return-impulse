@@ -1,20 +1,51 @@
 interface ToggleThemeProps{
     id: string
-    changeTheme:()=>void
+    //changeTheme:()=>void
     //renderF:()=>void
     store?: string
 }
 
-export function ToggleTheme({id,store,changeTheme}:ToggleThemeProps){ 
+export function ToggleTheme({id,store}:ToggleThemeProps){ 
 
-    
+    function changeThemeLocalStorage(){
+        let get = JSON.parse(localStorage.getItem('themeToggle')!)||false
+        let store = get == true
+
+        renderTheme(!store)
+        localStorage.setItem('themeToggle',JSON.stringify(!store))
+        console.log(store)
+
+    }
+
+    function firstRenderTheme(){
+        let get = JSON.parse(localStorage.getItem('themeToggle')!)||false
+        let store = get == true
+
+        renderTheme(store)
+    }
+
+    //change the theme when load the page
+    function renderTheme(bool:boolean){
+        const element = document.querySelector('html')
+        var classes = element?.className
+        if(bool){
+            !classes?.includes('dark') && element?.classList.add('dark')
+        }else{ 
+            classes?.includes('dark') && element?.classList.remove('dark')
+        }
+    }
+
+    firstRenderTheme()
 
     return(
         //trocar cores para seguir paleta de cores
-        <label htmlFor={id} className="inline-flex relative items-center cursor-pointer select-none"/* defaultChecked={JSON.parse(localStorage.getItem(store||'')!)||false} onLoad={JSON.parse(localStorage.getItem('themeToggle')!)||false}*/>
-            <input type="checkbox" value="" id={id} className="sr-only peer" onChange={changeTheme} defaultChecked={JSON.parse(localStorage.getItem(store||'')!)||false} />
-            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-            <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Toggle me</span>
-        </label>
+        <div className="py-4">
+            <label htmlFor={id} className="inline-flex relative items-center cursor-pointer select-none"/* defaultChecked={JSON.parse(localStorage.getItem(store||'')!)||false} onLoad={JSON.parse(localStorage.getItem('themeToggle')!)||false}*/>
+                <span className="mx-1">☀</span>
+                <input type="checkbox" value="" id={id} className="sr-only peer" onChange={changeThemeLocalStorage} defaultChecked={JSON.parse(localStorage.getItem(store||'')!)||false} />
+                <div className="w-11 h-6 bg-brand-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-brand-100 dark:peer-focus:ring-brand-200 rounded-full peer dark:bg-brand-500 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[32px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-brand-500"></div>
+                <span className="mx-1">🌙</span>
+            </label>
+        </div>
     )
 }
