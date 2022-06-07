@@ -14,8 +14,6 @@ export function ToggleTheme({id,store}:ToggleThemeProps){
 
         renderTheme(!store)
         localStorage.setItem('themeToggle',JSON.stringify(!store))
-        console.log(store)
-
     }
 
     function firstRenderTheme(){

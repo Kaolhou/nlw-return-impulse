@@ -42,7 +42,7 @@ export function FeedbackContentStep({feedbackType, onFeedbackRestarted, onFeedba
         <>
             <header>
                     <button 
-                        className="top-5 left-5 absolute text-zinc-400 hover:text-zinc-100 transition-colors"
+                        className="top-5 left-5 absolute dark:text-zinc-100 text-zinc-800 hover:text-secundary transition-colors"
                         onClick={onFeedbackRestarted}
                     >
                         <ArrowLeft weight="bold" className="w-4 h-4" />
