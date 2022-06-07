@@ -13,7 +13,8 @@ body{
 
 @layer components{
     [data-title]:hover:after {
-        @apply opacity-100 transition-all delay-500 visible;
+        
+        @apply delay-500 visible ;
     }
     /* box for title text */
     [data-title]:after {
@@ -22,7 +23,8 @@ body{
         /*position*/
         absolute bottom-[3.3em] left-0 whitespace-nowrap z-50 
         /*content*/
-        content-[attr(data-title)] opacity-0;
+        content-[attr(data-title)]
+        invisible;
     }
     [data-title] {
         position: relative;
