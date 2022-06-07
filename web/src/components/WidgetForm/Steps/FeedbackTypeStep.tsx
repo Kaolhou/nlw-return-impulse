@@ -25,7 +25,7 @@ export function FeedbackTypeStep(props:FeedbackTypeStepProps){
                             <span>
                                 <img src={value.image.source} alt={value.image.alt} className="mx-auto" />
                                 <span>{value.title}</span>
-                                </span>
+                            </span>
                         </button>
                     )
             

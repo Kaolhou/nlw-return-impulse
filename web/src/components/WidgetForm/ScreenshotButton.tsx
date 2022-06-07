@@ -28,7 +28,7 @@ export function ScreenshotButton({ onScreenshotTook, screenshot }:ScreenshotButt
         return(
             <button
                 type="button"
-                className="p-1 w-10 h-10 rounded-md border-transparent flex justify-end items-end dark:text-zinc-400 text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-100 transition-colors"
+                className="p-1 w-10 h-10 rounded-md border-transparent flex justify-end items-end text-secondary hover:text-primary transition-colors"
                 style={{
                     backgroundImage: `url(${screenshot})`,
 
@@ -47,6 +47,7 @@ export function ScreenshotButton({ onScreenshotTook, screenshot }:ScreenshotButt
         <button
             type="button"
             onClick={handleTakeScreenshot}
+            data-title="Capturar Tela"
             className="p-2 dark:bg-zinc-800 bg-zinc-100 rounded-md border-transparent hover:bg-zinc-300 dark:hover:bg-zinc-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-zinc-900 focus:ring-brand-500"
         >
             {isTakingScreenshot?<Loading/>:<Camera className="w-6 h-6 dark:text-zinc-100 text-zinc-800"/>}

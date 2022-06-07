@@ -2,7 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: Inter;
+    src: url('fonts/Inter/static/Inter-Regular.ttf');
+}
+
 body{
-    @apply bg-white dark:bg-[#09090A] text-[#27272A] dark:text-zinc-100;
-    /*background-color:#a3a3a3;*/
+    @apply bg-white dark:bg-[#09090A] text-[#27272A] dark:text-zinc-100 transition-colors font-[Inter];
+}
+
+@layer components{
+    [data-title]:hover:after {
+        @apply opacity-100 transition-all delay-500 visible;
+    }
+    /* box for title text */
+    [data-title]:after {
+        /*some styles*/
+        @apply tooltip text-on-tooltip rounded-md shadow-xl px-2 py-1 font-semibold text-[90%]
+        /*position*/
+        absolute bottom-[3.3em] left-0 whitespace-nowrap z-50 
+        /*content*/
+        content-[attr(data-title)] opacity-0;
+    }
+    [data-title] {
+        position: relative;
+    }
+}
+
+@layer base{
+    .surface-primary{
+        @apply dark:bg-zinc-900 bg-white;
+    }
+    .surface-secundary{
+        @apply dark:bg-zinc-800 bg-zinc-100
+    }
+    .surface-secundary-hover{
+        @apply dark:bg-zinc-700 bg-zinc-200
+    }
+    .stroke{
+        @apply dark:bg-zinc-600 bg-zinc-300
+    }
+    .tooltip{
+        @apply dark:bg-zinc-100 bg-zinc-800
+    }
+    .text-primary{
+        @apply dark:text-zinc-100 text-zinc-800
+    }
+    .text-secundary{
+        @apply dark:text-zinc-400 text-zinc-500
+    }
+    .text-on-tooltip{
+        @apply dark:text-zinc-800 text-zinc-100
+    }
 }

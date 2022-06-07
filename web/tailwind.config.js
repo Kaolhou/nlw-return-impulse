@@ -8,7 +8,7 @@ module.exports = {
           200: '#9C7FF5',
           300:'#996dff',
           500:'#8257e6',
-        }
+        },
       },
       borderRadius:{
         md: '4px'

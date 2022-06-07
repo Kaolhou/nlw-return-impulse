@@ -53,7 +53,7 @@ export function WidgetForm(){
     }
 
     return(
-        <div className="dark:bg-zinc-900 bg-white p-4 relative rounded-2xl mb-4 flex flex-col items-center shadow-2xl w-[calc(100vw-2rem)] md:w-auto">
+        <div className="surface-primary p-4 relative rounded-2xl mb-4 flex flex-col items-center shadow-2xl w-[calc(100vw-2rem)] md:w-auto">
             
             {
                 feedbackSent?
@@ -72,7 +72,7 @@ export function WidgetForm(){
             }
             
 
-            <footer className="text-xs text-zinc-500 dark:text-neutral-400">
+            <footer className="text-xs text-secundary">
                 Feito com ♥ por <a href="https://github.com/Kaolhou" target='_blank' className='underline underline-offset-2'>André Mendes</a>
             </footer>
         </div>
